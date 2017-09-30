@@ -14,3 +14,7 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+$router->get('appKey', function () use ($router) {
+    return str_random('32');
+});
