@@ -18,3 +18,17 @@ $router->get('/', function () use ($router) {
 $router->get('appKey', function () use ($router) {
     return str_random('32');
 });
+
+
+$router->group(['prefix' => 'api/v1'], function () use ($router)  {
+    $router->get('user',                    'Api\v1\UserController@index');
+    $router->post('users',                  'Api\v1\UserController@store');
+    $router->get('/users/{user_id}',        'Api\v1\UserController@show');
+    $router->put('/users/{user_id}',        'Api\v1\UserController@update');
+    $router->delete('/users/{user_id}',     'Api\v1\UserController@destroy');
+  });
+
+  $router->group(['prefix' => 'api/v1/flight'], function () use ($router)  {
+    $router->get('test',                    'Api\v1\FlightSearchController@test');
+    
+  });

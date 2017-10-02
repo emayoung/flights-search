@@ -11,9 +11,17 @@
 |
 */
 
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+    $hasher = app()->make('hash');
+    $apikey = base64_encode(str_random(32));
+    
     return [
         'name' => $faker->name,
         'email' => $faker->email,
+        'username' => $faker->username,
+        'password' => $hasher->make("secret"),
+        'api_key' => $apikey
+        
     ];
 });
