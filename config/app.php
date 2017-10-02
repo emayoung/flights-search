@@ -10,5 +10,6 @@
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
     */
+    
 
     'log' => 'errorlog',
